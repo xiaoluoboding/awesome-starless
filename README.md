@@ -1,11 +1,19 @@
 
-# Awesome Starless
+# Awesome Starless [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A curated list of awesome repositories which stargazers less but has a huge used by.
 
 Most of these repositories were the cornerstone of front-end development.
 
-Generated at 2020-07-08 22:51:45
+## How defined **Starless**
+
+I recommend the repos is usefully and the stargazers were disproportionate to the used by count.
+
+---
+
+> Generated at 2020-07-08 22:51:45.
+
+---
 
 <table cellspacing="0">
   <thead>
