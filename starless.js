@@ -74,10 +74,17 @@ class Starless {
   renderMd (content) {
     // <!-- # | user/repo | star | used by | proportion | picture | -->
 
-    const nowaday = () => {
+    const datetime = () => {
       let t = new Date()
       t.setDate(t.getDate())
-      return t.toISOString().split('T')[0]
+
+      t.setTime(t.getTime())
+
+      const date = t.toISOString().split('T')[0]
+
+      const time = t.toTimeString().split(' ')[0]
+
+      return `${date} ${time}`
     }
 
     const mdTemplate = `
@@ -87,7 +94,7 @@ A curated list of awesome repositories which stargazers less but has a huge used
 
 Most of these repositories were the cornerstone of front-end development.
 
-generated at ${nowaday()}
+generated at ${datetime()}
 
 <table cellspacing="0">
   <thead>
@@ -106,7 +113,8 @@ generated at ${nowaday()}
 
 ## Credits
 
-Inspired by [Most active GitHub users](https: //gist.github.com/paulmillr/2657075)
+Inspired by [Most active GitHub users](https://gist.github.com/paulmillr/2657075)
+
 `
     return mdTemplate
   }
@@ -125,7 +133,7 @@ Inspired by [Most active GitHub users](https: //gist.github.com/paulmillr/265707
     <td>${item.starCount}</td>
     <td>${item.usedbyCount}</td>
     <td>${item.proportion}</td>
-    <td><img width="30" height="30" src="${item.picture}"></td></tr>
+    <td><a target="_black" href="https://github.com/${item.repoName.split('/').shift()}"><img width="30" height="30" src="${item.picture}"></a></td></tr>
   </tr>
           `
         }).toString().replace(/,/g, '')
