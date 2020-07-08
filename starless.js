@@ -55,6 +55,8 @@ class GithubRepos {
     const mdTemplate = `
 # Awesome Starless
 
+A curated list of awesome repositories which starer is less but has a huge used by.
+
 <table cellspacing="0">
   <thead>
     <th scope="col">#</th>
@@ -69,6 +71,8 @@ class GithubRepos {
     ${content}
   </tbody>
 </table>
+
+Inspired by [https://gist.github.com/paulmillr/2657075](https://gist.github.com/paulmillr/2657075)
 `
     return mdTemplate
   }
@@ -86,7 +90,7 @@ class GithubRepos {
     <td><a href="https://github.com/${item.repoName}">${item.repoName}</a></td>
     <td>${item.starCount}</td>
     <td>${item.usedbyCount}</td>
-    <td>${item.proportion}%</td>
+    <td>${item.proportion}</td>
   </tr>
           `
         }).toString().replace(/,/g, '')
