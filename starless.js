@@ -94,7 +94,7 @@ A curated list of awesome repositories which stargazers less but has a huge used
 
 Most of these repositories were the cornerstone of front-end development.
 
-generated at ${datetime()}
+Generated at ${datetime()}
 
 <table cellspacing="0">
   <thead>
@@ -114,6 +114,10 @@ generated at ${datetime()}
 ## Credits
 
 Inspired by [Most active GitHub users](https://gist.github.com/paulmillr/2657075)
+
+## License
+
+MIT © [xiaoluoboding](https://github.com/xiaoluoboding)
 
 `
     return mdTemplate
