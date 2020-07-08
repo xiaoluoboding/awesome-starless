@@ -3,9 +3,15 @@ const cheerio = require('cheerio')
 const fs = require('fs')
 const path = require('path')
 
+const { Octokit } = require('@octokit/rest')
+
+const octokit = new Octokit({
+  previews: ["mercy-preview"]
+})
+
 const { repoList } = require('./constants')
 
-class GithubRepos {
+class Starless {
   constructor (args) {
     this.starCount = 0
     this.usedbyCount = 0
@@ -40,39 +46,67 @@ class GithubRepos {
 
     const proportion = Math.floor(usedbyCount / starCount)
 
+    const repoInfo = await this.fetchApi(repoName)
+
     const starless = {
       repoName,
       starCount,
       usedbyCount,
-      proportion
+      proportion,
+      picture: repoInfo.owner.avatar_url
     }
 
     return starless
   }
 
+  async fetchApi (repoName) {
+    const owner = repoName.split('/').shift()
+    const repo = repoName.split('/').pop()
+    const res = await octokit.repos.get({
+      owner,
+      repo,
+      mediaType: { previews: ["symmetra"] }
+    })
+
+    return res.data
+  }
+
   renderMd (content) {
     // <!-- # | user/repo | star | used by | proportion | picture | -->
+
+    const nowaday = () => {
+      let t = new Date()
+      t.setDate(t.getDate())
+      return t.toISOString().split('T')[0]
+    }
+
     const mdTemplate = `
 # Awesome Starless
 
-A curated list of awesome repositories which starer is less but has a huge used by.
+A curated list of awesome repositories which stargazers less but has a huge used by.
+
+Most of these repositories were the cornerstone of front-end development.
+
+generated at ${nowaday()}
 
 <table cellspacing="0">
   <thead>
     <th scope="col">#</th>
-    <th scope="col">User/Repo</th>
+    <th scope="col">Owner/Repo</th>
     <th scope="col">Star</th>
     <!-- Language currently disabled: GitHub returns 'Shell' for most users <th scope="col">Language</th> -->
     <th scope="col">Used By</th>
     <th scope="col">Proportion</th>
-  <!-- <th scope="col" width="30">Picture</th> -->
+    <th scope="col" width="30">Picture</th>
   </thead>
   <tbody>
     ${content}
   </tbody>
 </table>
 
-Inspired by [https://gist.github.com/paulmillr/2657075](https://gist.github.com/paulmillr/2657075)
+## Credits
+
+Inspired by [Most active GitHub users](https: //gist.github.com/paulmillr/2657075)
 `
     return mdTemplate
   }
@@ -91,6 +125,7 @@ Inspired by [https://gist.github.com/paulmillr/2657075](https://gist.github.com/
     <td>${item.starCount}</td>
     <td>${item.usedbyCount}</td>
     <td>${item.proportion}</td>
+    <td><img width="30" height="30" src="${item.picture}"></td></tr>
   </tr>
           `
         }).toString().replace(/,/g, '')
@@ -112,19 +147,19 @@ Inspired by [https://gist.github.com/paulmillr/2657075](https://gist.github.com/
 }
 
 (async function () {
-  const gr = new GithubRepos()
+  const starless = new Starless()
 
   const promises = repoList.map(async repo => {
-    const res = await gr.fetchPage(repo)
+    const res = await starless.fetchPage(repo)
     return res
   })
 
   try {
     const result = await Promise.all(promises)
 
-    console.log(result)
+    console.dir(result)
 
-    await gr.writeReadme(result)
+    await starless.writeReadme(result)
   } catch (error) {
     console.log(error)
   }
