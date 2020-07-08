@@ -81,13 +81,13 @@ class GithubRepos {
         .sort((a, b) => b.proportion - a.proportion)
         .map((item, index) => {
           return `
-    <tr>
-      <th scope="row">#${index + 1}</th>
-      <td><a href="https://github.com/${item.repoName}">${item.repoName}</a></td>
-      <td>${item.starCount}</td>
-      <td>${item.usedbyCount}</td>
-      <td>${item.proportion}%</td>
-    </tr>
+  <tr>
+    <th scope="row">#${index + 1}</th>
+    <td><a href="https://github.com/${item.repoName}">${item.repoName}</a></td>
+    <td>${item.starCount}</td>
+    <td>${item.usedbyCount}</td>
+    <td>${item.proportion}%</td>
+  </tr>
           `
         }).toString().replace(/,/g, '')
 
