@@ -1,0 +1,31 @@
+module.exports = {
+  repoList: [
+    'component/has-cors',
+    'sindresorhus/slash',
+    'component/is-module',
+    'component/escape-html',
+    'browserify/resolve',
+    // 'Microsoft/tslib',
+    'sindresorhus/globby',
+    'mozilla/source-map',
+    'isaacs/node-lru-cache',
+    'eemeli/yaml',
+    'csstree/csstree',
+    'Rich-Harris/estree-walker',
+    'isaacs/rimraf',
+    'substack/minimist',
+    'MikeMcl/big.js',
+    // 'yyx990803/yorkie',
+    'isaacs/node-glob',
+    'facebook/prop-types',
+    'browserslist/browserslist',
+    'tigt/mini-svg-data-uri',
+    'postcss/postcss-color-function',
+    'postcss/sugarss',
+    'sindresorhus/matcher',
+    'yyx990803/register-service-worker',
+    'remarkjs/remark',
+    'knicklabs/lorem-ipsum.js',
+    'zeit/serve'
+  ]
+}
