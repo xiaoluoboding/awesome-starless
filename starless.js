@@ -90,7 +90,7 @@ class Starless {
     const mdTemplate = `
 # Awesome Starless [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-A curated list of awesome repositories which stargazers less but has a huge used by.
+A curated list of awesome repositories with few stargazers but many users.
 
 Most of these repositories were the cornerstone of front-end development.
 

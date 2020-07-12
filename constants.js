@@ -1,6 +1,7 @@
 module.exports = {
   repoList: [
     'component/has-cors',
+    'jonschlinkert/is-plain-object',
     'sindresorhus/slash',
     'component/is-module',
     'component/escape-html',
