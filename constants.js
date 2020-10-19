@@ -5,12 +5,15 @@ module.exports = {
     'sindresorhus/slash',
     'component/is-module',
     'component/escape-html',
+    'sindresorhus/make-dir',
     'browserify/resolve',
     // 'Microsoft/tslib',
     'blakeembrey/javascript-stringify',
+    'sindresorhus/del',
     'sindresorhus/globby',
     'mozilla/source-map',
     'webpack-contrib/file-loader',
+    'mrmlnc/fast-glob',
     'isaacs/node-lru-cache',
     'eemeli/yaml',
     'csstree/csstree',
@@ -18,6 +21,7 @@ module.exports = {
     'isaacs/rimraf',
     'substack/minimist',
     'MikeMcl/big.js',
+    'sindresorhus/multimatch',
     // 'yyx990803/yorkie',
     'isaacs/node-glob',
     'facebook/prop-types',
@@ -27,8 +31,6 @@ module.exports = {
     'postcss/sugarss',
     'sindresorhus/matcher',
     'yyx990803/register-service-worker',
-    'remarkjs/remark',
-    'knicklabs/lorem-ipsum.js',
-    'zeit/serve'
+    'remarkjs/remark'
   ]
 }
